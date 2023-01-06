@@ -1,19 +1,14 @@
 import os
 import tensorflow as tf
 from tensorflow.keras.optimizers import Adam
-from tensorflow.keras.callbacks import ModelCheckpoint
-from tensorflow.keras.callbacks import CSVLogger
+from tensorflow.keras.callbacks import ModelCheckpoint, CSVLogger
 
+from models import SOD, U2Net
+from losses import CascadeBCE
+from metrics import FScore, IOUScore, IOUScore2, MAE, BinaryAccuracy
+from callbacks import LossHistory, VisualizerPerEpoch
 from data_utils.data_flow import get_train_test_data
 from utils.train_processing import create_folder_weights, train_prepare
-from models import U2Net
-from models import SOD
-from losses import CascadeBCE
-from metrics import FScore
-from metrics import IOUScore
-from callbacks import LossHistory
-from callbacks import VisualizerPerEpoch
-
 from configs import general_config as cfg
 
 
