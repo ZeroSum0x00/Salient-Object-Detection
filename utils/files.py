@@ -22,5 +22,5 @@ def verify_folder(folder):
 
 def get_files(folder_path, extensions=['py', 'png', 'JPEG']):
     extensions = [ex.lower() for ex in extensions]
-    result = [f for f in os.listdir(folder_path) if f.split('.')[-1] in extensions]
+    result = [f for f in os.listdir(folder_path) if f.split('.')[-1].lower() in extensions]
     return result
